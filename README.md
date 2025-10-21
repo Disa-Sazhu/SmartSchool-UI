@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MyApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# SmartSchool-UI
+frontend 
+>>>>>>> dfd5558c3f3a3dedd99ef28ec297489d0f17419a
