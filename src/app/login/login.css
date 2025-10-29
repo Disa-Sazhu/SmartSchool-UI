@@ -1,19 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
-  margin: 0;
+  margin: px;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Poppins', sans-serif;
-  background: #b3d8e9;
+  background: #186c93;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(11, 124, 229, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(218, 15, 15, 0.25);
+  border-radius: 20px;
+  background: radial-gradient(circle at top, #006a9c, #001f33);
+  box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1),
+            inset -2px -2px 5px rgba(0,0,0,0.3);
+  background: rgba(2, 143, 244, 0.1);
+  
+
+
 }
+
+
+
+@keyframes glowMove {
+  from { transform: translate(0,0); }
+  to { transform: translate(-60px,40px); }
+}
+
+
+
+
 
 /* ---------- MAIN CONTAINER ---------- */
 .login-wrapper {
@@ -22,7 +43,7 @@ body {
   border-radius: 20px;
   border: 2px solid #006a9c;
   display: flex;
-  background: #fff;
+  background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -47,20 +68,25 @@ body {
 
 /* floating image animation */
 .left-panel img {
-  width: 70%;
-  max-width: 250px;
-  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 30px;
   animation: float 3s ease-in-out infinite;
 }
 
 .left-panel h2 {
   font-size: 22px;
   color: #222;
-  margin-bottom: 10px;
+  margin-bottom: -5px;
+  margin: 0 auto 30px;
+  animation: float 3s ease-in-out infinite;
 }
 
 .left-panel h2 span {
+  text-decoration-style: double;
+  text-decoration: blanchedalmond;
   color: #006a9c;
+  font-size: 15px;
 }
 
 .left-panel p {
@@ -85,7 +111,7 @@ body {
 .circle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(0, 106, 156, 0.1);
+  background: rgba(1, 199, 27, 0.1);
   animation: move 10s linear infinite;
 }
 
@@ -116,8 +142,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  margin-bottom: px;
+  gap: 1px;
+  margin-bottom: -10px;
 }
 
 .logo img {
@@ -141,43 +167,91 @@ h4 {
 
 .login-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction:column;
+  align-items:center;
 }
 
+/* Input box group */
 .input-group {
+  position: relative;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
+/* Icon inside input */
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-icon img {
+  margin-left:-4px;
+  margin-bottom: -5px;
+  width: 25px;
+  opacity: 0.9;
+}
+
+/* Input styling */
 .input-group input {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  padding: 12px 15px 12px 45px; /* space for icon */
+  border: 1.5px solid #ccc;
+  border-radius: 12px;
   font-size: 14px;
-  transition: border-color 0.3s;
+  background: #f9fbfd;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  color: #333;
 }
 
+
+/* Focus effect */
 .input-group input:focus {
   border-color: #006a9c;
+  background: #fff;
   outline: none;
+  box-shadow: 0 0 10px rgba(0,106,156,0.15);
 }
 
+/* When user starts typing → fade icon & placeholder slightly */
+.input-group input:not(:placeholder-shown) + .input-icon,
+.input-group input:focus + .input-icon {
+  opacity: 0.4;
+}
+
+/* Optional – Fade placeholder when typing */
+.input-group input:not(:placeholder-shown)::placeholder {
+  color: transparent;
+}
+
+/* Smooth hover effect */
+.input-group input:hover {
+  border-color: #1398e6;
+}
 .options {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* 👈 moves content to left */
+  align-items: center;
   width: 100%;
   font-size: 13px;
   margin-bottom: 20px;
+  text-decoration: double;
 }
+
 
 .options a {
   color: #006a9c;
   text-decoration: none;
+  margin-left: 10px; /* ensure left alignment */
 }
 
+
+
+/* Login button */
 .login-btn {
+  
   width: 100%;
   padding: 12px;
   background: linear-gradient(to right, #00a2ff, #006a9c);
@@ -187,17 +261,19 @@ h4 {
   font-size: 16px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(90deg, #009fe3, #006a9c);
+  box-shadow: 0 0 15px rgba(0,150,255,0.5);
+
 }
 
 .login-btn:hover {
-   border: 2px solid #006a9c;
-  border-color: #d3135d;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(16, 137, 194, 0.879);
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(0,150,255,0.8);
+
 }
 
 .social-login {
-  margin-top: 20px;
+  margin-top: -10px;
 }
 
 .social-login p {
@@ -228,6 +304,32 @@ h4 {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.signup-label {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-link {
+  background: none;
+  border: none;
+  color: #006a9c;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.signup-link:hover {
+  color: #0094cc;
+  transform: scale(1.05);
+}
+
+
+
 .footer {
   margin-top: 25px;
   font-size: 12px;
@@ -244,6 +346,12 @@ h4 {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
 
 @keyframes float {
   0% { transform: translateY(0px); }
@@ -263,11 +371,107 @@ h4 {
   100% { transform: translateY(0) rotate(360deg); }
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
+
+/* Smooth Responsive Design with Animation */
+.login-wrapper, 
+.left-panel, 
+.right-panel, 
+.left-panel img {
+  transition: all 0.5s ease-in-out;
+}
+
+/* ✅ Full Responsive (Left & Right panels always visible) */
+
+.login-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  max-width: 900px;
+  transition: all 0.4s ease;
+}
+
+/* Panels common styling */
+.left-panel,
+.right-panel {
+  flex: 1;
+  transition: all 0.4s ease;
+  padding: 30px;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
   .login-wrapper {
-    flex-direction: column;
     width: 95%;
   }
-  
+
+  .left-panel img {
+    width: 65%;
+  }
+
+  .right-panel {
+    padding: 25px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+}
+
+/* Mobile view (still both visible) */
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .left-panel img {
+    width: 55%;
+    margin: 0 auto 15px;
+  }
+
+  .login-form input {
+    width: 90%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .login-wrapper {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .left-panel img {
+    width: 70%;
+  }
+
+  .left-panel h2 {
+    font-size: 18px;
+  }
+
+  .right-panel {
+    padding: 15px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .google-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  h4 {
+    font-size: 15px;
+  }
 }

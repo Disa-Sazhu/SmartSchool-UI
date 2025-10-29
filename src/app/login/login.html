@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart School Login | EDULink</title>
+  <title> Smart School Login | EDULink</title>
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -26,19 +26,35 @@
 
       <h4>Secure Login</h4>
 
-      <form class="login-form">
-        <div class="input-group">
-          <input type="text" placeholder="Username" required>
-        </div>
-        <div class="input-group">
-          <input type="password" placeholder="Password" required>
-        </div>
+    <div class="login-form">
+      <div class="input-group">
+    <div class="input-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/206/206853.png" alt="User Icon">
+    </div>
+     <input 
+    type="text" 
+    placeholder="Username" 
+    name="username" 
+    autocomplete="off"
+  />
+  </div>
 
+  <div class="input-group">
+    <div class="input-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/7069/7069204.png" alt="Key Icon">
+    </div>
+     <input 
+    type="password" 
+    placeholder="Password" 
+    name="password" 
+    autocomplete="new-password"
+  />
+  </div>
         <div class="options">
-          <label><input type="checkbox"> Remember me</label>
-          <a href="#">Forgot Password?</a>
+          <label><input type="checkbox"> Remember me </label>
+          <a href="#"> Forgot Password?</a>
         </div>
-
+      
         <button type="submit" class="login-btn">LOGIN</button>
 
         <div class="social-login">
@@ -48,5 +64,9 @@
             Login with Google
           </button>
         </div>
+        <div class="signup-label">
+          <span>Don't have an account?</span>
+          <button class="signup-link">Sign Up</button>
+      </div>
 
         <div class="footer"> 
